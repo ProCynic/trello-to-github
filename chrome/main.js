@@ -54,6 +54,8 @@ var trelloGithub = (function($, Trello) {
     $('.t2g-input').val('');
     $('.t2g-input').removeClass('input-error');
     popover.toggle();
+    if (window.innerHeight - 334 < popoverOffset.top)
+      popoverOffset.top = window.innerHeight - 334;
     popover.offset(popoverOffset);
     $('#github-repo').focus();
     $('#github-repo').typeahead({
