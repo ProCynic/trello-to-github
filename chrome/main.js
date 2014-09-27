@@ -230,7 +230,8 @@ var trelloGithub = (function($, Trello) {
 })(jQuery, Trello);
 
 ob = new MutationObserver(function(objs, observer){
-  var wasHidden = $.inArray('display: none', $.map(objs, function(o){return o['oldValue'];}).join().split(/;,? ?/)) != -1;
+  var oldStyleProps = $.map(objs, function(o){return o['oldValue'];}).join();
+  var wasHidden = !oldStyleProps || $.inArray('display: none', oldStyleProps.split(/;,? ?/)) != -1;
   if($('.window').is(':visible') && wasHidden) {
     trelloGithub.addButton();
   }
