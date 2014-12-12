@@ -49,7 +49,8 @@ var trelloGithub = (function($, Trello) {
     });
   }
 
-  var jsGithubIssue = exports.jsGithubIssue = function() {
+  var jsGithubIssue = exports.jsGithubIssue = function(e) {
+    e.stopPropagation();
     var popover = $('#github-popover');
     $('.t2g-input').val('');
     $('.t2g-input').removeClass('input-error');
